@@ -13,11 +13,16 @@
   <div class="bg-orb orb-1"></div>
   <div class="bg-orb orb-2"></div>
 
+  <header class="topbar">
+    <h1>Obsidian Dashboard</h1>
+    <button id="fullscreenBtn" class="icon-btn">⛶ Fullscreen</button>
+  </header>
+
   <main class="dashboard" id="dashboard">
     <section class="widget date-widget" data-widget="date">
       <h2 class="widget-title">Today</h2>
-      <p id="dayName" class="day-name">Wednesday</p>
-      <p id="fullDate" class="full-date">April 29, 2026</p>
+      <p id="dayName" class="day-name"></p>
+      <p id="fullDate" class="full-date"></p>
     </section>
 
     <section class="widget clock-widget" data-widget="clock">
@@ -25,16 +30,11 @@
         <h2 class="widget-title">Digital Clock</h2>
         <button class="icon-btn" data-action="toggle-settings" data-target="clock-settings">⚙</button>
       </div>
-      <p id="clockTime" class="clock-time">00:00</p>
+      <p id="clockTime" class="clock-time"></p>
       <div id="clock-settings" class="settings-panel hidden">
         <label><input type="checkbox" id="toggleSeconds" /> Show seconds</label>
         <label><input type="checkbox" id="toggle24Hour" /> 24-hour format</label>
       </div>
-    </section>
-
-    <section class="widget midnight-widget" data-widget="midnight">
-      <h2 class="widget-title">Until Midnight</h2>
-      <p id="midnightCountdown" class="big-metric">00:00:00</p>
     </section>
 
     <section class="widget calendar-widget" data-widget="calendar">
@@ -54,58 +54,35 @@
     </section>
 
     <section class="widget weather-widget" data-widget="weather">
-      <h2 class="widget-title">Weather</h2>
+      <h2 class="widget-title">Weather (Live API)</h2>
       <div class="weather-main">
         <span id="weatherIcon" class="weather-icon">☁</span>
         <div>
-          <p id="weatherTemp" class="weather-temp">72°F</p>
-          <p id="weatherCond" class="weather-cond">Partly Cloudy</p>
+          <p id="weatherTemp" class="weather-temp">--°F</p>
+          <p id="weatherCond" class="weather-cond">Loading...</p>
         </div>
       </div>
-      <p id="weatherRange" class="weather-range">H: 77° • L: 64°</p>
-      <small>API-ready placeholder data</small>
+      <p id="weatherRange" class="weather-range">H: -- • L: --</p>
+      <small id="weatherMeta" class="subtle"></small>
     </section>
 
     <section class="widget sun-widget" data-widget="sun">
       <h2 class="widget-title">Solar Position</h2>
-      <p id="sunAngle" class="big-metric">Altitude: 0.0°</p>
+      <p id="sunAngle" class="big-metric"></p>
       <p id="sunriseSunset" class="subtle"></p>
       <p id="goldenHour" class="subtle"></p>
+      <p id="midnightCountdown" class="subtle"></p>
     </section>
 
     <section class="widget countdown-widget" data-widget="countdown">
       <div class="widget-header">
-        <h2 class="widget-title">Custom Countdowns</h2>
-        <button class="icon-btn" id="addCountdown">＋</button>
+        <h2 class="widget-title">Graduation Countdown</h2>
       </div>
-      <ul id="countdownList" class="countdown-list"></ul>
-    </section>
-
-    <section class="widget notes-widget" data-widget="notes">
-      <h2 class="widget-title">Notes</h2>
-      <textarea id="notes" placeholder="Quick notes..."></textarea>
-    </section>
-
-    <section class="widget accent-widget" data-widget="accent">
-      <h2 class="widget-title">Appearance</h2>
-      <label for="accentColor" class="subtle">Accent Color</label>
-      <input type="color" id="accentColor" value="#7f5af0" />
+      <label class="subtle" for="gradDate">Graduation date</label>
+      <input type="date" id="gradDate" />
+      <p id="gradCountdown" class="big-metric"></p>
     </section>
   </main>
-
-  <template id="countdownItemTemplate">
-    <li class="countdown-item">
-      <div>
-        <p class="event-name"></p>
-        <p class="event-date subtle"></p>
-      </div>
-      <div class="countdown-controls">
-        <span class="event-remaining"></span>
-        <button class="icon-btn edit-btn">✎</button>
-        <button class="icon-btn delete-btn">✕</button>
-      </div>
-    </li>
-  </template>
 
   <script src="script.js"></script>
 </body>
