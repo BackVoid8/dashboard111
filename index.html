@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Obsidian Dashboard</title>
-  <meta name="theme-color" content="#0c0c0f" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -13,11 +12,6 @@
 <body>
   <div class="bg-orb orb-1"></div>
   <div class="bg-orb orb-2"></div>
-
-  <header class="topbar">
-    <h1>Obsidian Dashboard</h1>
-    <button id="toggleFullscreen" class="icon-btn">⛶ Fullscreen</button>
-  </header>
 
   <main class="dashboard" id="dashboard">
     <section class="widget date-widget" data-widget="date">
@@ -83,10 +77,6 @@
       <div class="widget-header">
         <h2 class="widget-title">Custom Countdowns</h2>
         <button class="icon-btn" id="addCountdown">＋</button>
-      </div>
-      <div class="grad-config">
-        <label class="subtle" for="graduationDate">Graduation Date</label>
-        <input type="date" id="graduationDate" />
       </div>
       <ul id="countdownList" class="countdown-list"></ul>
     </section>
