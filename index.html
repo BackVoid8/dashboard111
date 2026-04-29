@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Obsidian Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+
+  <main class="dashboard" id="dashboard">
+    <section class="widget date-widget" data-widget="date">
+      <h2 class="widget-title">Today</h2>
+      <p id="dayName" class="day-name">Wednesday</p>
+      <p id="fullDate" class="full-date">April 29, 2026</p>
+    </section>
+
+    <section class="widget clock-widget" data-widget="clock">
+      <div class="widget-header">
+        <h2 class="widget-title">Digital Clock</h2>
+        <button class="icon-btn" data-action="toggle-settings" data-target="clock-settings">⚙</button>
+      </div>
+      <p id="clockTime" class="clock-time">00:00</p>
+      <div id="clock-settings" class="settings-panel hidden">
+        <label><input type="checkbox" id="toggleSeconds" /> Show seconds</label>
+        <label><input type="checkbox" id="toggle24Hour" /> 24-hour format</label>
+      </div>
+    </section>
+
+    <section class="widget midnight-widget" data-widget="midnight">
+      <h2 class="widget-title">Until Midnight</h2>
+      <p id="midnightCountdown" class="big-metric">00:00:00</p>
+    </section>
+
+    <section class="widget calendar-widget" data-widget="calendar">
+      <div class="widget-header">
+        <h2 class="widget-title">Calendar</h2>
+        <div class="calendar-nav">
+          <button class="icon-btn" id="prevMonth">‹</button>
+          <button class="icon-btn" id="nextMonth">›</button>
+        </div>
+      </div>
+      <p id="calendarMonth" class="calendar-month"></p>
+      <div id="calendarGrid" class="calendar-grid"></div>
+      <div class="events-row">
+        <h3>Upcoming</h3>
+        <ul id="upcomingEvents"></ul>
+      </div>
+    </section>
+
+    <section class="widget weather-widget" data-widget="weather">
+      <h2 class="widget-title">Weather</h2>
+      <div class="weather-main">
+        <span id="weatherIcon" class="weather-icon">☁</span>
+        <div>
+          <p id="weatherTemp" class="weather-temp">72°F</p>
+          <p id="weatherCond" class="weather-cond">Partly Cloudy</p>
+        </div>
+      </div>
+      <p id="weatherRange" class="weather-range">H: 77° • L: 64°</p>
+      <small>API-ready placeholder data</small>
+    </section>
+
+    <section class="widget sun-widget" data-widget="sun">
+      <h2 class="widget-title">Solar Position</h2>
+      <p id="sunAngle" class="big-metric">Altitude: 0.0°</p>
+      <p id="sunriseSunset" class="subtle"></p>
+      <p id="goldenHour" class="subtle"></p>
+    </section>
+
+    <section class="widget countdown-widget" data-widget="countdown">
+      <div class="widget-header">
+        <h2 class="widget-title">Custom Countdowns</h2>
+        <button class="icon-btn" id="addCountdown">＋</button>
+      </div>
+      <ul id="countdownList" class="countdown-list"></ul>
+    </section>
+
+    <section class="widget notes-widget" data-widget="notes">
+      <h2 class="widget-title">Notes</h2>
+      <textarea id="notes" placeholder="Quick notes..."></textarea>
+    </section>
+
+    <section class="widget accent-widget" data-widget="accent">
+      <h2 class="widget-title">Appearance</h2>
+      <label for="accentColor" class="subtle">Accent Color</label>
+      <input type="color" id="accentColor" value="#7f5af0" />
+    </section>
+  </main>
+
+  <template id="countdownItemTemplate">
+    <li class="countdown-item">
+      <div>
+        <p class="event-name"></p>
+        <p class="event-date subtle"></p>
+      </div>
+      <div class="countdown-controls">
+        <span class="event-remaining"></span>
+        <button class="icon-btn edit-btn">✎</button>
+        <button class="icon-btn delete-btn">✕</button>
+      </div>
+    </li>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
